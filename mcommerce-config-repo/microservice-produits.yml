@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: microservice-produits
+    
+  datasource:
+    database: microservice_produits
+    hostname: ${POSTGRES_HOST:localhost}
+    port: ${POSTGRES_PORT:5432}
+    username: ${POSTGRES_USER:khoffy}
+    password: ${POSTGRES_PASSWD:SwaY890}
+    url: jdbc:postgresql://${spring.datasource.hostname}:${spring.datasource.port}/${spring.datasource.database}
+    sql-script-encoding: UTF-8
+  initialization-mode: always
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true  # To beautify or pretty print the SQL
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database: postgresql
+
+#server:
+  #port: 9001
+
+own-config:
+  limitDeProduits: 4
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9102/eureka/

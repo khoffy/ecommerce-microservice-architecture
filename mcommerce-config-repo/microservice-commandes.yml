@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: microservice-commandes
+    
+  datasource:
+    database: microservice_commandes
+    hostname: ${POSTGRES_HOST:localhost}
+    port: ${POSTGRES_PORT:5432}
+    username: ${POSTGRES_USER:khoffy}
+    password: ${POSTGRES_PASSWD:SwaY890}
+    url: jdbc:postgresql://${spring.datasource.hostname}:${spring.datasource.port}/${spring.datasource.database}
+  initialization-mode: always
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database: postgresql
+
+server:
+    port: 9002
+
+# Set the refresh endpoint for the config
+# To trigger the refresh of the properties, issue 
+# http://<config_server_ip_addr>:<port>/actuator/refresh      
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
+
+# Discovery server config
+# @EnableDiscoveryClient on the main class
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9102/eureka/
