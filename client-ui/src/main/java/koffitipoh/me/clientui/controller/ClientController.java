@@ -2,7 +2,6 @@ package koffitipoh.me.clientui.controller;
 
 import java.util.List;
 
-import koffitipoh.me.clientui.proxies.MicroserviceProduitsProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

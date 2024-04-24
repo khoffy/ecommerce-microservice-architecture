@@ -33,7 +33,7 @@ public class CommandeController {
 
         Optional<Commande> commande = commandesDao.findById(id);
 
-        if(!commande.isPresent()) throw new com.mcommandes.web.exceptions.CommandeNotFoundException("Cette commande n'existe pas");
+        if(commande.isEmpty()) throw new CommandeNotFoundException("Cette commande n'existe pas");
 
         return commande;
     }
