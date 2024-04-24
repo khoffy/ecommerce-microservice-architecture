@@ -1,13 +1,13 @@
-package koffitipoh.me.clientui;
+package koffitipoh.me.configserver;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ClientUiApplicationTests {
+class ConfigServerApplicationTests {
 
-    @Test
-    void contextLoads() {
-    }
+	@Test
+	void contextLoads() {
+	}
 
 }
