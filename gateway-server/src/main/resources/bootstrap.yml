@@ -6,8 +6,8 @@ spring:
   cloud:
     config:
       uri: http://localhost:9101
-      import-check:
-        enabled: false
+#      import-check:
+#        enabled: false
 
-#server:
-#  port: 9103
+server:
+  port: 9103
