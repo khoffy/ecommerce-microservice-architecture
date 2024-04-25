@@ -14,11 +14,11 @@ import koffitipoh.me.clientui.configuration.LoadBalancerConfiguration;
 // We remove url parameter cause we're going to launch multiple instances 
 // on various port for load balancing with Load Balancer
 @FeignClient(name = "gateway-server", url = "localhost:9103")
-@LoadBalancerClient(name = "microservice-produits", configuration = LoadBalancerConfiguration.class)
-public interface MicroserviceProduitsProxy {
-    @GetMapping(value = "/produits")
-    List<ProductBean> listeDesProduits();
+@LoadBalancerClient(name = "microservice-products", configuration = LoadBalancerConfiguration.class)
+public interface MicroserviceProductsProxy {
+    @GetMapping(value = "/products")
+    List<ProductBean> productsList();
 
-   @GetMapping( value = "/produits/{id}")
-   ProductBean recupererUnProduit(@PathVariable("id") int id);    
+   @GetMapping( value = "/products/{id}")
+   ProductBean getProductById(@PathVariable("id") int id);
 }

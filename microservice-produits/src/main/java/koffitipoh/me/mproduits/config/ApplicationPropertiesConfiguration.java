@@ -8,14 +8,14 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties("own-config")
 @RefreshScope                    
 public class ApplicationPropertiesConfiguration {
-    private int limitDeProduits;
+    private int limitOfProducts;
 
-    public int getLimitDeProduits() {
-        return limitDeProduits;
+    public int getLimitOfProducts() {
+        return limitOfProducts;
     }
 
-    public void setLimitDeProduits(int limitDeProduits) {
-        this.limitDeProduits = limitDeProduits;
+    public void setLimitOfProducts(int limitOfProducts) {
+        this.limitOfProducts = limitOfProducts;
     }    
 }
 

@@ -10,7 +10,7 @@ public class CustomerErrorDecoder implements ErrorDecoder {
     @Override
     public Exception decode(String invoker, Response response) {
         if(response.status() == 400) {
-            return new ProductBadRequestException("Requete Incorrecte");
+            return new ProductBadRequestException("Bad Request");
         }
         return defaultErrorDecoder.decode(invoker, response);
     }

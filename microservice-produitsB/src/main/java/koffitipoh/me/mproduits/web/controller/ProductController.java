@@ -21,24 +21,24 @@ public class ProductController {
     private ApplicationPropertiesConfiguration appProperties;
 
     // Affiche la liste de tous les produits disponibles
-    @GetMapping(value = "/produits")
-    public List<Product> listeDesProduits(){
+    @GetMapping(value = "/products")
+    public List<Product> productsList(){
 
         List<Product> products = productDao.findAll();
 
         if(products.isEmpty()) throw new ProductNotFoundException("Aucun produit n'est disponible à la vente");
 
-        return products.subList(0, appProperties.getLimitDeProduits());
+        return products.subList(0, appProperties.getLimitOfProducts());
 
     }
 
     //Récuperer un produit par son id
-    @GetMapping( value = "/produits/{id}")
-    public Optional<Product> recupererUnProduit(@PathVariable int id) {
+    @GetMapping( value = "/products/{id}")
+    public Optional<Product> getProductById(@PathVariable int id) {
 
         Optional<Product> product = productDao.findById(id);
 
-        if(!product.isPresent())  throw new ProductNotFoundException("Le produit correspondant à l'id " + id + " n'existe pas");
+        if(product.isEmpty())  throw new ProductNotFoundException("The product, which id is " + id + " doesn't exist");
 
         return product;
     }
