@@ -1,0 +1,27 @@
+version: '3.7'
+services:
+  postgres:
+    image: 'postgres:latest'
+    environment:
+      - 'POSTGRES_DB=ecommerce_db'
+      - 'POSTGRES_PASSWORD=1234'
+      - 'POSTGRES_USER=koffi'
+    ports:
+      - '5432:5432'
+
+  pgadmin:
+    image: 'dpage/pgadmin4:latest'
+    environment:
+      PGADMIN_DEFAULT_EMAIL: koffiah.tipoh@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: 1234
+      PGADMIN_LISTEN_PORT: 5050
+    ports:
+      - '5050:5050'
+
+  zipkin:
+    image: openzipkin/zipkin
+    container_name: zipkin
+    environment:
+      - STORAGE_TYPE=mem  # Use in-memory storage for simplicity
+    ports:
+      - '9411:9411'

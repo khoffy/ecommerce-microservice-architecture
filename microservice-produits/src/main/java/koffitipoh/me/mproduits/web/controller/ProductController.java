@@ -4,6 +4,7 @@ import koffitipoh.me.mproduits.config.ApplicationPropertiesConfiguration;
 import koffitipoh.me.mproduits.dao.ProductDao;
 import koffitipoh.me.mproduits.model.Product;
 import koffitipoh.me.mproduits.web.exceptions.ProductNotFoundException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.Optional;
 
+@Slf4j
 @RestController
 public class ProductController {
 
@@ -27,6 +29,8 @@ public class ProductController {
         List<Product> products = productDao.findAll();
 
         if(products.isEmpty()) throw new ProductNotFoundException("Aucun produit n'est disponible à la vente");
+
+        log.info("Getting list of products");
 
         return products.subList(0, appProperties.getLimitOfProducts());
 

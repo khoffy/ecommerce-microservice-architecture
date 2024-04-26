@@ -16,7 +16,7 @@ import java.util.List;
 // @FeignClient(name = "microservice-produits", url = "localhost:9001")
 // We remove url parameter cause we're going to launch multiple instances 
 // on various port for load balancing with Load Balancer
-@FeignClient(name = "shipping-gateway", url = "localhost:9103")
+@FeignClient(name = "shipping-gateway", url = "localhost:9102")
 @LoadBalancerClient(name = "microservice-shippings", configuration = LoadBalancerConfiguration.class)
 public interface MicroserviceShippingsProxy {
 
