@@ -6,9 +6,3 @@ spring:
       uri: http://localhost:9101 # config-server ip address:port
 
 
-
-
-      
-
-
-

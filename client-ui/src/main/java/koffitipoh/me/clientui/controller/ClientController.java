@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import koffitipoh.me.clientui.beans.ProductBean;
 import koffitipoh.me.clientui.proxies.MicroserviceProductsProxy;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/products")
 public class ClientController {
 
     private MicroserviceProductsProxy productsProxy;

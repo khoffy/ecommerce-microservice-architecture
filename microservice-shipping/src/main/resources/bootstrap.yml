@@ -1,11 +1,11 @@
 spring:
   application:
-    name: microservice-products
+    name: microservice-shippings
 
   cloud:
     config:
       uri: http://localhost:9101
 
-server:
-  port: 9011
+#server:
+  #port: 9001
   
