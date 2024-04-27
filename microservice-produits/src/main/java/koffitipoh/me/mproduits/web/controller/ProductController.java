@@ -6,6 +6,7 @@ import koffitipoh.me.mproduits.model.Product;
 import koffitipoh.me.mproduits.web.exceptions.ProductNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,6 +24,7 @@ public class ProductController {
     private ApplicationPropertiesConfiguration appProperties;
 
     // Affiche la liste de tous les produits disponibles
+    @PreAuthorize("hasAnyAuthority('SCOPE_ADMIN', 'SCOPE_USER')")
     @GetMapping(value = "/products")
     public List<Product> productsList(){
 
@@ -37,6 +39,7 @@ public class ProductController {
     }
 
     //Récuperer un produit par son id
+    //@PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping( value = "/products/{id}")
     public Optional<Product> getProductById(@PathVariable int id) {
 
@@ -47,6 +50,7 @@ public class ProductController {
         return product;
     }
 
+    @Autowired
     public void setProductDao(ProductDao productDao) {
         this.productDao = productDao;
     }

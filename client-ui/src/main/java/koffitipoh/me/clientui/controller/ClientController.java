@@ -20,7 +20,7 @@ public class ClientController {
 
     private MicroserviceProductsProxy productsProxy;
     
-    @GetMapping("/")
+    @GetMapping
     public String accueil(Model model) {
         log.info("Getting list of products from client ui microservice");
         List<ProductBean> products = productsProxy.productsList();
@@ -28,7 +28,7 @@ public class ClientController {
         return "index";
     }
 
-    @GetMapping("/details-product/{id}")
+    @GetMapping("/{id}")
     public String ficheProduit(@PathVariable int id,  Model model){
     ProductBean product = productsProxy.getProductById(id);
     model.addAttribute("product", product);

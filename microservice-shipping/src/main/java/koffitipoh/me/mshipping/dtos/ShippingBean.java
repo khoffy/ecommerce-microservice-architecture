@@ -6,7 +6,7 @@ import lombok.*;
 @AllArgsConstructor @NoArgsConstructor
 @Builder
 public class ShippingBean {
-    private long id;
+    private Long id;
 
     private String orderId;
 
