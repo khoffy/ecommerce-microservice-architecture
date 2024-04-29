@@ -1,3 +1,11 @@
+### RUN
+1. Launch the docker compose file
+2. Launch Spring Cloud Config Server (ConfigServerApplication)
+3. Launch Eureka registry (EurekaServerApplication)
+4. Launch API Gateway server (GatewayServerApplication)
+5. Launch Spring Security (MsecurityApplication)
+6. Launch the rest of microservices (ClientUI, Mproduits, Mshipping, Mpaiement, Mcommandes)
+
 ### LIST OF PRODUCTS
 http://localhost:9001/produits    
 
